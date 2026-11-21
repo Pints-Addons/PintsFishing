@@ -1,0 +1,29 @@
+Pint's Fishing - Changelog
+
+v1.0.1
+- WoW Forever: Where to Fish and the world map's zone skills include Forever's new waters, set from what Wowhead's
+  WoW Forever database shows biting there: Zephras Isle (like Elwynn Forest, -70), the Riverglades (130, like
+  Stranglethorn), Shen'dralas (130) and Mount Hyjal (330, like Winterspring).
+
+v1.0
+- First release: cast and hook with one key, double right-click to cast, louder splashes while fishing, and fast loot.
+- A fishing macro for your action bars (/pfish macro): the key on that bar button casts and hooks too.
+- Fish tracker: casts, catches with their shares, skill gained and time this session - or everything caught at
+  this spot (click the title). /pfish tracker, /pfish reset.
+- The tracker shows the lure on your pole and your Well Fed buff, with the time left on each. A fanfare plays when a
+  lure goes on and a sad sound when it runs out (option in /pfish).
+- Clearer splashes no longer turns sound effects up (other anglers' splashes got as loud as yours) - just music and
+  ambience down.
+- Tracker views (a drop-down on the title): here or all waters, for this session, this character's
+  all time or every character's. Catches are counted per spot - a session's fish no longer follow you to the next zone.
+- Tracker laid out like FisherMate: total and session casts and catches with the catch rate, missed casts, catches
+  and gold per hour, estimated gold made (session or lifetime; auction prices from Pint's Auctions, else vendor).
+  Expanded View lists every catch with lifetime and session counts, its price, Exclude from gold, and delete.
+- Lure: a warning a minute before it runs out, and an Apply Lure button with the best lure in your bags.
+- Bags: a warning when you're down to 4 free slots.
+- Where to Fish: for skill (zones you catch cleanly in) and for gold (zones ranked by gold an hour). /pfish where
+- Cook: what every fish in your bags makes and the best way to sell it - raw or cooked, auction or vendor - and
+  Cook, Campfire and Open Cooking buttons. /pfish cook
+- Minimap button: left-click shows where to fish for gold; right-click opens a menu (where to level, cook, tracker, lifetime details, macro, options). Drag to move; /pfish minimap hides or shows it.
+- Fishing panel (/pfish panel, or the minimap menu): Fishing ON/OFF, your keys, what the key does now, skill and catches per skill point, getaways here, lure with an apply button, pole/weapon swap, session casts/catches/junk/getaways/value per hour, Stranglethorn contest countdown, open containers, sell grey, last pool seen, and buttons for everything else.
+- Tracker: the running count of every fish is back on it (this session / total, and each one's share), for whichever view the title is set to. It hides as soon as you take the fishing pole off.

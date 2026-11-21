@@ -1,0 +1,17 @@
+## Interface: 11508, 11509, 16001
+## Title: |cffd4a017Pint's|r Fishing
+## Notes: Fish with one key: press it to cast, press it again when the bobber splashes to hook. Double right-click to cast, louder splashes and instant looting too. /pfish
+## Author: Jake (Pint's Add-ons, built with Claude)
+## Version: 1.0.1
+## X-Curse-Project-ID: 1821544
+## X-License: GPL-3.0
+## SavedVariables: PintsFishingDB
+
+Strings.lua
+PintsFishing.lua
+Tracker.lua
+Where.lua
+Cook.lua
+Panel.lua
+Minimap.lua
+MapLevels.lua

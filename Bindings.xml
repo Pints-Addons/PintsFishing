@@ -1,0 +1,5 @@
+<Bindings>
+	<Binding name="PINTSFISHING_CAST" header="PINTSFISHING" category="ADDONS">
+		PintsFishing_Key()
+	</Binding>
+</Bindings>
