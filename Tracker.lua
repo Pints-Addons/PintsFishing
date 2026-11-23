@@ -14,16 +14,18 @@ local function Spot()
 	local sub = GetSubZoneText()
 	return (sub and sub ~= "" and sub ~= zone) and (zone .. " - " .. sub) or zone
 end
--- your Fishing skill: (rank, max) - from the professions list on newer clients, the skills list on Classic
+-- your Fishing skill: (rank, max, bonus) - from the professions list on newer clients, the skills list on Classic. The
+-- bonus is everything on top of your rank right now: lure, pole, gear and buffs
+local function Num(v) if type(issecretvalue) == "function" and issecretvalue(v) then return 0 end return tonumber(v) or 0 end
 local function Skill()
 	if GetProfessions and GetProfessionInfo then
 		local _, _, _, fish = GetProfessions()
-		if fish then local _, _, rank, max = GetProfessionInfo(fish); return rank, max end
+		if fish then local _, _, rank, max, _, _, _, mod = GetProfessionInfo(fish); return rank, max, Num(mod) end
 	end
 	if GetNumSkillLines and GetSkillLineInfo then
 		for i = 1, GetNumSkillLines() do
-			local name, header, _, rank, _, _, max = GetSkillLineInfo(i)
-			if not header and name == PF.FISHING then return rank, max end
+			local name, header, _, rank, temp, mod, max = GetSkillLineInfo(i)
+			if not header and name == PF.FISHING then return rank, max, Num(mod) + Num(temp) end
 		end
 	end
 end
@@ -245,10 +247,11 @@ function PF.DrawTracker()
 	t[#t + 1] = "Est. gold made: " .. Money(gold)
 	local goldRow = #t
 	t[#t + 1] = "Gold per hour: " .. (hours and Money(Worth(sById) / hours) or "-")
-	local rank, max = Skill()
+	local rank, max, bonus = Skill()
 	if rank then
 		local gained = (S.startSkill and rank > S.startSkill) and ("  |cff40ff40+" .. (rank - S.startSkill) .. "|r") or ""
-		t[#t + 1] = ("Fishing: |cff40ff40%d|r/%d%s"):format(rank, max or 0, gained)
+		local all = (bonus and bonus > 0) and ("  (|cff40ff40%d|r with buffs)"):format(rank + bonus) or ""
+		t[#t + 1] = ("Fishing: |cff40ff40%d|r/%d%s%s"):format(rank, max or 0, gained, all)
 	end
 	if S.started then t[#t + 1] = "Session time: " .. G:format(Clock(GetTime() - S.started)) end
 	local lure = PF.LureLeft()
