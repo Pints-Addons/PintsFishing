@@ -76,9 +76,17 @@ watch:SetScript("OnUpdate", function(_, el)
 	local info = id and C_Map.GetMapInfo(id)
 	local f, z
 	if On() and info and info.mapType and info.mapType >= ZONE then z = ZoneOf(id); f = z and Short(z.name) end
-	if f then own.name:SetText(z.name); own.sub:SetText(f); own:Show() else own:Hide() end
+	if f then
+		-- the zone's name and level fade out after a moment, so the map behind them shows (back when the map changes
+		-- or is opened again)
+		local key = z.name .. f
+		if own.key ~= key then own.key = key; own.at = GetTime() end
+		local t = GetTime() - (own.at or 0)
+		own:SetAlpha((t < 2.5 and 1) or (t < 3.5 and (3.5 - t)) or 0)
+		own.name:SetText(z.name); own.sub:SetText(f); own:Show()
+	else own:Hide(); own.key = nil end
 end)
-WorldMapFrame:HookScript("OnHide", function() own:Hide(); if mine then mine:Hide() end end)
+WorldMapFrame:HookScript("OnHide", function() own:Hide(); own.key = nil; if mine then mine:Hide() end end)
 
 -- /pfish maplevels
 local prev = SlashCmdList.PINTSFISHING

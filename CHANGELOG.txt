@@ -1,5 +1,9 @@
 Pint's Fishing - Changelog
 
+v1.0.3
+- World map: a zone's name and fishing level fade out after a couple of seconds so the map behind them shows; they
+  come back when you change maps or open the map again.
+
 v1.0.2
 - Fish tracker: after your Fishing skill, your skill with everything on top of it in brackets - lure, pole, gear and
   buffs - e.g. Fishing: 276/300 +1 (376 with buffs).
